@@ -9,18 +9,28 @@ import csv
 dm = pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/circle.csv')
 drr= dm.loc[0:2]
 
+#def ParcourDirectory():
+# #with open('C:/Users/YB.DELL/Desktop/LifProjet/test.csv','a') as fd:
+#    global drr
+#    for element in os.listdir('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'): 
+#        #dd= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'+element)
+#    dg= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/angel.csv')
+#    drr=drr.append(dg.loc[0:2])
+#    fd.write(dd.loc[0:2])
+
 def ParcourDirectory():
- #with open('C:/Users/YB.DELL/Desktop/LifProjet/test.csv','a') as fd:
     global drr
-    #for element in os.listdir('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'): 
-        #dd= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'+element)
-    dg= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/angel.csv')
-    drr=drr.append(dg.loc[0:2])
-    #fd.write(dd.loc[0:2])
+    i=1
+    for element in os.listdir('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'): 
+            print(i)
+            dd= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'+element)
+            drr=drr.append(dd.loc[0:2])
+            i=i+1
 
 ParcourDirectory()
 
 #dd= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/airplane.csv')
 #dg= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/angel.csv')
 #dd.append(dg.loc[0:2])
-drr
+#drr
+drr.to_csv('C:/Users/YB.DELL/Desktop/LifProjet/test.csv')
