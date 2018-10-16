@@ -20,12 +20,9 @@ drr= dm.loc[0:2]
 
 def ParcourDirectory():
     global drr
-    i=1
-    for element in os.listdir('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'): 
-            print(i)
+    for element in os.listdir('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'):
             dd= pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/'+element)
             drr=drr.append(dd.loc[0:2])
-            i=i+1
 
 ParcourDirectory()
 
