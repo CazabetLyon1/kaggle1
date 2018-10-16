@@ -6,6 +6,8 @@ import math
 import matplotlib as plt
 import csv
 
+#pour faire faudra remplacer les chemin par 
+
 dm = pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/circle.csv')
 drr= dm.loc[0:2]
 
