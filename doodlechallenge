@@ -33,3 +33,15 @@ ParcourDirectory()
 #dd.append(dg.loc[0:2])
 #drr
 drr.to_csv('C:/Users/YB.DELL/Desktop/LifProjet/test.csv')
+
+
+def transformerdrawing() :
+    owls['drawing'] = owls['drawing'].apply(ast.literal_eval)
+
+    def zipper(liste):
+        return list(map(list, list(zip(*liste))))
+
+    ss = sd['drawing'].loc[5]
+    
+res = [zipper(liste) for liste in ss]
+res
