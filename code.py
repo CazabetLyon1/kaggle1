@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # In[118]:
@@ -268,3 +267,12 @@ len(lll.flatten())
 
 np.array(listeV).flatten()
 
+def Pixel_Flatten(dataFrame):
+        a=resres(dataFrame)
+        createimage(a,listeF)
+        lsls=np.array(listeF).flatten()
+        return lsls
+        
+def Parcour_Tab_pixel(dataFrame):
+    for i in range(len(dataFrame)):
+        dataFrame[i]=Pixel_Flatten(dataFrame[i])        
