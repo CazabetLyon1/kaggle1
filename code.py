@@ -275,4 +275,9 @@ def Pixel_Flatten(dataFrame):
         
 def Parcour_Tab_pixel(dataFrame):
     for i in range(len(dataFrame)):
-        dataFrame[i]=Pixel_Flatten(dataFrame[i])        
+        dataFrame[i]=Pixel_Flatten(dataFrame[i])       
+        
+temp=dmm['drawing'].iloc[0:5]
+Parcour_Tab_pixel(temp)
+temp
+
