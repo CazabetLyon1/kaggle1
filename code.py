@@ -281,3 +281,6 @@ temp=dmm['drawing'].iloc[0:5]
 Parcour_Tab_pixel(temp)
 temp
 
+clf = svm.SVC()
+clf.fit(train_images, train_labels.values)
+clf.score(test_images,test_labels)
