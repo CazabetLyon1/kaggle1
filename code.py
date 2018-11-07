@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # In[8]:
@@ -287,13 +286,6 @@ lll[0]
 ac=np.array(listeV).flatten()
 
 
-# In[436]:
-
-
-len(ac)
-
-
-# In[10]:
 
 
 def Pixel_Flatten(dataFrame):
@@ -304,25 +296,12 @@ def Pixel_Flatten(dataFrame):
         return lsls
 
 
-# In[11]:
-
-
 def Parcour_Tab_pixel(dataFrame):
     for i in range(len(dataFrame)):
         dataFrame[i]=Pixel_Flatten(dataFrame[i])
 
-
-# In[18]:
-
-
 temp=dmm['drawing'].iloc[0:]
 #Parcour_Tab_pixel(images)
-dmm
-
-
-# In[1]:
-
-
 dmm
 
 
