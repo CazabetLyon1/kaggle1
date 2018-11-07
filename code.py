@@ -1,6 +1,7 @@
+
 # coding: utf-8
 
-# In[118]:
+# In[8]:
 
 
 import pandas as pd
@@ -13,17 +14,18 @@ import cv2
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn import svm
+get_ipython().run_line_magic('matplotlib', 'inline')
 
 taillex=64
 tailley=64
 
 labeled_images = pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/test.csv')
-images = labeled_images.iloc[0:5000,1:]
-labels = labeled_images.iloc[0:5000,:1]
+images = dmm['drawing']
+labels = dmm['word']
 train_images, test_images,train_labels, test_labels = train_test_split(images, labels, train_size=0.8, random_state=0)
 
 
-# In[2]:
+# In[489]:
 
 
 dm = pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/RC4/circle.csv')
@@ -59,27 +61,27 @@ ParcourDirectory()
 drr.to_csv('C:/Users/YB.DELL/Desktop/LifProjet/test.csv')
 
 
-# In[119]:
+# In[6]:
 
 
 dmm=pd.read_csv('C:/Users/YB.DELL/Desktop/LifProjet/test.csv')
 dmm
 
 
-# In[120]:
+# In[7]:
 
 
 dmm['drawing'] = dmm['drawing'].apply(ast.literal_eval)
 
 
-# In[3]:
+# In[9]:
 
 
 def zipper(liste):
         return list(map(list, list(zip(*liste))))
 
 
-# In[38]:
+# In[10]:
 
 
 def resres(dataFrameDraw):
@@ -92,14 +94,30 @@ def resres(dataFrameDraw):
     return res
 
 
-# In[121]:
+# In[11]:
+
+
+def resres1(dataFrame):
+    ss=dataFrame
+    dd = [zipper(liste) for liste in ss]
+    return dd
+
+
+# In[12]:
+
+
+dmdm=resres1(dmm['drawing'].iloc[0])
+dmdm
+
+
+# In[13]:
 
 
 a=resres(dmm['drawing'].iloc[0:5])
-a[4]
+a[3]
 
 
-# In[269]:
+# In[14]:
 
 
 def createimage(cordes,cd):
@@ -119,23 +137,23 @@ def createimage(cordes,cd):
     return img
 
 
-# In[334]:
+# In[21]:
 
 
 listeV=[]
-img = createimage(a[2],listeV)
+img = createimage(a[3],listeV)
 plt.imshow(img, cmap='binary')
 plt.title('my picture')
 plt.show()
 
 
-# In[209]:
+# In[22]:
 
 
-listeV[0][63]#==listeV[1][0]
+listeV[0][19]#==listeV[1][0]
 
 
-# In[343]:
+# In[23]:
 
 
 def draw_img(to_draw,a,b,listepoints):
@@ -177,7 +195,7 @@ def créeListe(taillezboub):
     return [[0 for j in range(taillezboub)] for i in range(taillezboub)]
 
 
-# In[275]:
+# In[415]:
 
 
 img = np.zeros((10,10,3), np.uint8)
@@ -185,7 +203,7 @@ abab=cv2.line(img,(0,0),(511,511),(255),1)
 plt.imshow(img, cmap='binary')
 plt.title('my picture')
 plt.show()
-abab
+#abab
 
 
 # In[266]:
@@ -252,35 +270,66 @@ for ligne in listeRes:
 type(listeM[0])
 
 
-# In[409]:
+# In[432]:
 
 
 for l in listeV:
     listeM += l
 listll=listeM.flatten
 lll=np.concatenate(listeV, axis=0)
-len(lll.flatten())
+lll.flatten()
+lll[0]
 
 
-# In[413]:
+# In[428]:
 
 
-np.array(listeV).flatten()
+ac=np.array(listeV).flatten()
+
+
+# In[436]:
+
+
+len(ac)
+
+
+# In[10]:
+
 
 def Pixel_Flatten(dataFrame):
-        a=resres(dataFrame)
+        a=resres1(dataFrame)
+        listeF=[]
         createimage(a,listeF)
         lsls=np.array(listeF).flatten()
         return lsls
-        
+
+
+# In[11]:
+
+
 def Parcour_Tab_pixel(dataFrame):
     for i in range(len(dataFrame)):
-        dataFrame[i]=Pixel_Flatten(dataFrame[i])       
-        
-temp=dmm['drawing'].iloc[0:5]
-Parcour_Tab_pixel(temp)
-temp
+        dataFrame[i]=Pixel_Flatten(dataFrame[i])
+
+
+# In[18]:
+
+
+temp=dmm['drawing'].iloc[0:]
+#Parcour_Tab_pixel(images)
+dmm
+
+
+# In[1]:
+
+
+dmm
+
+
+# In[23]:
+
 
 clf = svm.SVC()
 clf.fit(train_images, train_labels.values)
 clf.score(test_images,test_labels)
+
